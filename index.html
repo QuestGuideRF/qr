@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор QR-кодов</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-qrcode header-icon"></i>
+                <h1>Генератор QR-кодов</h1>
+                <p>Создавайте QR-коды из текста или ссылок быстро и легко</p>
+            </div>
+        </header>
+        <main class="main">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="textInput">Введите текст или ссылку:</label>
+                    <textarea
+                        id="textInput"
+                        placeholder="Например: https://example.com или любой текст..."
+                        rows="4"
+                        maxlength="2000"
+                    ></textarea>
+                    <div class="input-footer">
+                        <span class="char-counter">0 / 2000</span>
+                    </div>
+                </div>
+                <div class="options-section">
+                    <h3>Настройки QR-кода</h3>
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label for="sizeSelect">Размер:</label>
+                            <select id="sizeSelect">
+                                <option value="200">200x200</option>
+                                <option value="300" selected>300x300</option>
+                                <option value="400">400x400</option>
+                                <option value="500">500x500</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="colorSelect">Цвет:</label>
+                            <div class="color-options">
+                                <input type="color" id="colorSelect" value="#000000">
+                                <span class="color-label">Чёрный</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="generateBtn" class="generate-btn">
+                    <i class="fas fa-magic"></i>
+                    Создать QR-код
+                </button>
+            </div>
+            <div class="output-section">
+                <div id="qrResult" class="qr-result">
+                    <div class="placeholder">
+                        <i class="fas fa-qrcode placeholder-icon"></i>
+                        <p>QR-код появится здесь</p>
+                    </div>
+                </div>
+                <div id="downloadSection" class="download-section" style="display: none;">
+                    <button id="downloadBtn" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Скачать QR-код
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
